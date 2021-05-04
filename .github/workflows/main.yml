@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: date
-        shell: wslbash.exe
+        shell: wslbash
     # steps:
     #   - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
     #     shell: wslbash.exe
