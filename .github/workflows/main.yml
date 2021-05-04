@@ -7,9 +7,9 @@ jobs:
   test:
     runs-on: windows-2019
     steps:
-      - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
+      - run: curl -LO https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe
         shell: cmd
       - run: .\otp_win64_23.3.2.exe /S
         shell: cmd
-      - run: C:\"Program Files"\erl-23.3.2\bin/erl +V
+      - run: C:\"Program Files"\erl-23.3.2\bin\erl +V
         shell: cmd
