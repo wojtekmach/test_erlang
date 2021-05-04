@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
         shell: cmd
-      - run: ./otp_win64_23.3.2.exe "/S"
+      - run: .\otp_win64_23.3.2.exe /S
         shell: cmd
       - run: erl +V
         shell: cmd
