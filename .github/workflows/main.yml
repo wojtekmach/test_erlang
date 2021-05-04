@@ -11,7 +11,5 @@ jobs:
         shell: cmd
       - run: .\otp_win64_23.3.2.exe /S
         shell: cmd
-      - run: erl +V
+      - run: C:\"Program Files"\erl-23.3.2\bin/erl +V
         shell: cmd
-    # - run: "C:/Program Files"/erl-23.3.2/bin/erl "+V"
-    #     shell: wslbash.exe
