@@ -7,12 +7,11 @@ jobs:
   test:
     runs-on: windows-2019
     steps:
-      - run: date
+      - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
         shell: bash
-    # steps:
-    #   - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
-    #     shell: wslbash.exe
-    #   - run: ./otp_win64_23.3.2.exe "/S"
-    #     shell: wslbash.exe
-    #   - run: "C:/Program Files"/erl-23.3.2/bin/erl "+V"
+      - run: ./otp_win64_23.3.2.exe "/S"
+        shell: bash
+      - run: erl +V
+        shell: bash
+    # - run: "C:/Program Files"/erl-23.3.2/bin/erl "+V"
     #     shell: wslbash.exe
