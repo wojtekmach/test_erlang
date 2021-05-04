@@ -9,5 +9,5 @@ jobs:
     steps:
       - run: curl -LO "https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe"
       - run: otp_win64_23.3.2.exe "/S"
-      # - run: erl +V
+      - run: erl "+V"
       - run: "C:/Program Files"/erl-23.3.2/bin/erl "+V"
