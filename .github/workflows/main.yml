@@ -4,17 +4,25 @@ on:
   push:
 
 jobs:
-  test-windows:
-    runs-on: windows-2019
+  test-linux:
+    runs-on: ubuntu-latest
     steps:
-      - run: curl -LO https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe
-        shell: cmd
-      - run: .\otp_win64_23.3.2.exe /S
-        shell: cmd
-      - run: C:\"Program Files"\erl-23.3.2\bin\erl +V
-        shell: cmd
-  test-macos:
-    runs-on: macos-10.15
-    steps:
-      - run: brew install erlang@23
-      - run: erl +V
+      - uses: erlef/setup-beam@v1
+        with:
+          otp_version: 24
+          elixir_version: 1.12
+      - run: elixir --version
+#  test-windows:
+#    runs-on: windows-2019
+#    steps:
+#      - run: curl -LO https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe
+#        shell: cmd
+#      - run: .\otp_win64_23.3.2.exe /S
+#        shell: cmd
+#      - run: C:\"Program Files"\erl-23.3.2\bin\erl +V
+#        shell: cmd
+#  test-macos:
+#    runs-on: macos-10.15
+#    steps:
+#      - run: brew install erlang@23
+#      - run: erl +V
