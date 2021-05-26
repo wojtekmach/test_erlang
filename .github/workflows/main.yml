@@ -11,6 +11,7 @@ jobs:
         with:
           otp-version: 19
       - run: rebar3 version
+      - run: which rebar3
 #  test-windows:
 #    runs-on: windows-2019
 #    steps:
