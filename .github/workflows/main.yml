@@ -10,8 +10,7 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: 19
-          elixir-version: 1.5
-      - run: elixir --version
+      - run: rebar3 version
 #  test-windows:
 #    runs-on: windows-2019
 #    steps:
