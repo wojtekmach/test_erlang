@@ -6,12 +6,25 @@ on:
 jobs:
   test-linux:
     runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        pair:
+          - erlang: master
+          - erlang: 24
+          - erlang: 23
+          - erlang: 22
+          - erlang: 21
+          - erlang: 20
+          - erlang: 19
+          - erlang: 18
+          - erlang: 17
     steps:
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: 19
+          otp-version: ${{matrix.pair.erlang}}
+          rebar3-version: 3.6.1
       - run: rebar3 version
-      - run: which rebar3
 #  test-windows:
 #    runs-on: windows-2019
 #    steps:
