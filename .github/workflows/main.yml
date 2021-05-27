@@ -10,8 +10,35 @@ jobs:
       fail-fast: false
       matrix:
         pair:
+          - erlang: master
+            rebar3: 3.16.1
+
           - erlang: 24
             rebar3: 3.16.1
+
+          - erlang: 24
+            rebar3: 3.16.1
+
+          - erlang: 23
+            rebar3: 3.16.1
+
+          - erlang: 22
+            rebar3: 3.16.1
+
+          - erlang: 21
+            rebar3: 3.11.0
+
+          - erlang: 20
+            rebar3: 3.6.1
+
+          - erlang: 19
+            rebar3: 3.6.1
+
+          - erlang: 18
+            rebar3: 3.6.1
+
+          - erlang: 17
+            rebar3: 3.6.1
     steps:
       - uses: erlef/setup-beam@v1
         with:
