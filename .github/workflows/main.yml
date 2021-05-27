@@ -10,32 +10,11 @@ jobs:
       fail-fast: false
       matrix:
         pair:
-          - erlang: master
           - erlang: 24
-          - erlang: 23
-          - erlang: 22
-          - erlang: 21
-          - erlang: 20
-          - erlang: 19
-          - erlang: 18
-          - erlang: 17
+            rebar3: 3.16.1
     steps:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.pair.erlang}}
-          rebar3-version: 3.6.1
+          rebar3-version: ${{matrix.pair.rebar3}}
       - run: rebar3 version
-#  test-windows:
-#    runs-on: windows-2019
-#    steps:
-#      - run: curl -LO https://github.com/erlang/otp/releases/download/OTP-23.3.2/otp_win64_23.3.2.exe
-#        shell: cmd
-#      - run: .\otp_win64_23.3.2.exe /S
-#        shell: cmd
-#      - run: C:\"Program Files"\erl-23.3.2\bin\erl +V
-#        shell: cmd
-#  test-macos:
-#    runs-on: macos-10.15
-#    steps:
-#      - run: brew install erlang@23
-#      - run: erl +V
