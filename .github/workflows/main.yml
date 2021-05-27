@@ -11,36 +11,36 @@ jobs:
       matrix:
         pair:
           - erlang: master
-            rebar3: 3.16.1
+            rebar3: 3.16
 
           - erlang: 24
-            rebar3: 3.16.1
+            rebar3: 3.16
 
           - erlang: 24
-            rebar3: 3.16.1
+            rebar3: 3.16
 
           - erlang: 23
-            rebar3: 3.16.1
+            rebar3: 3.16
 
           - erlang: 22
-            rebar3: 3.16.1
+            rebar3: 3.16
 
           - erlang: 21
-            rebar3: 3.11.0
+            rebar3: 3.11
 
           - erlang: 20
             rebar3: 3.6.1
 
           - erlang: 19
-            rebar3: 3.6.1
+            rebar3: 3.6
 
           - erlang: 18
-            rebar3: 3.6.1
+            rebar3: 3.6
 
           - erlang: 17
-            rebar3: 3.6.1
+            rebar3: 3.6
     steps:
-      - uses: erlef/setup-beam@v1
+      - uses: paulo-ferraz-oliveira/setup-beam@feature/100-releases-back
         with:
           otp-version: ${{matrix.pair.erlang}}
           rebar3-version: ${{matrix.pair.rebar3}}
