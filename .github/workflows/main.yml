@@ -22,3 +22,12 @@ jobs:
           otp-version: ${{matrix.pair.erlang}}
           rebar3-version: ${{matrix.pair.rebar3}}
       - run: rebar3 version
+  test-windows:
+    runs-on: windows-2019
+    steps:
+      - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
+        with:
+         otp-version: 24
+         # rebar3-version: '3.16.1'
+      - run: rebar3 version
+      - run: erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
