@@ -4,6 +4,10 @@ on:
   push:
 
 jobs:
+  test-macos:
+    runs-on: macos-11
+    steps:
+      - run: uname -a
   test-linux:
     runs-on: ubuntu-18.04
     strategy:
