@@ -30,5 +30,6 @@ jobs:
          otp-version: 24
          # rebar3-version: '3.16.1'
       - run: where npm
-      - run: & rebar3 version
-      - run: & erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+      - run: npm version
+      - run: "& rebar3 version"
+      - run: "& erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell"
