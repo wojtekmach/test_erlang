@@ -28,8 +28,14 @@ jobs:
       - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
         with:
          otp-version: 24
-         # rebar3-version: '3.16.1'
+         rebar3-version: '3.16.1'
       - run: where npm
       - run: npm version
       - run: "& rebar3 version"
-      - run: "& erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell"
+        shell: pwsh
+      - run: "& erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell"
+        shell: pwsh
+      - run: rebar3 version
+        shell: pwsh
+      - run: erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell
+        shell: pwsh
