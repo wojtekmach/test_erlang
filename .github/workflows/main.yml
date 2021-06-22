@@ -27,14 +27,6 @@ jobs:
     steps:
       - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
         with:
-         otp-version: 24
-         rebar3-version: '3.16.1'
-      - run: rebar3 version
-  test-windows-2016:
-    runs-on: windows-2016
-    steps:
-      - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
-        with:
-         otp-version: 24
+         otp-version: 23
          rebar3-version: '3.16.1'
       - run: rebar3 version
