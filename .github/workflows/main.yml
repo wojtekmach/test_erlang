@@ -35,4 +35,4 @@ jobs:
           dir tmp
           curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
           unzip Precompiled.zip
-      - run: .\tmp\bin\elixir --version
+      - run: .\tmp\bin\elixir.bat --version
