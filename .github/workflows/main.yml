@@ -30,3 +30,9 @@ jobs:
          otp-version: 23
          rebar3-version: '3.16.1'
       - run: rebar3 version
+      - run: |
+        mkdir tmp
+        dir tmp
+        curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
+        unzip Precompiled
+      - run: tmp\bin\elixir --version
