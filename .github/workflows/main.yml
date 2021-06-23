@@ -4,24 +4,24 @@ on:
   push:
 
 jobs:
-  test-macos:
-    runs-on: macos-11
-    steps:
-      - run: uname -a
-  test-linux:
-    runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
-      matrix:
-        pair:
-          - erlang: 24
-            rebar3: 3.16.1
-    steps:
-      - uses: erlef/setup-beam@v1
-        with:
-          otp-version: ${{matrix.pair.erlang}}
-          rebar3-version: ${{matrix.pair.rebar3}}
-      - run: rebar3 version
+  # test-macos:
+  #   runs-on: macos-11
+  #   steps:
+  #     - run: uname -a
+  # test-linux:
+  #   runs-on: ubuntu-18.04
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       pair:
+  #         - erlang: 24
+  #           rebar3: 3.16.1
+  #   steps:
+  #     - uses: erlef/setup-beam@v1
+  #       with:
+  #         otp-version: ${{matrix.pair.erlang}}
+  #         rebar3-version: ${{matrix.pair.rebar3}}
+  #     - run: rebar3 version
   test-windows:
     runs-on: windows-2019
     steps:
@@ -35,4 +35,4 @@ jobs:
           dir tmp
           curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
           unzip Precompiled.zip
-      - run: tmp\bin\elixir --version
+      - run: .\tmp\bin\elixir --version
