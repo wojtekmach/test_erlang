@@ -31,8 +31,8 @@ jobs:
          rebar3-version: '3.16.1'
       - run: rebar3 version
       - run: |
-        mkdir tmp
-        dir tmp
-        curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
-        unzip Precompiled.zip
+          mkdir tmp
+          dir tmp
+          curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
+          unzip Precompiled.zip
       - run: tmp\bin\elixir --version
