@@ -15,6 +15,7 @@ jobs:
           platforms: all
       - name: Available platforms
         run: echo ${{ steps.qemu.outputs.platforms }}
+      - run: qemu --version
 
   # test-macos:
   #   runs-on: macos-11
