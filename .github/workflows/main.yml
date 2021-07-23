@@ -21,11 +21,7 @@ jobs:
         usesh: true
         prepare: pkg install -y curl
         run: |
-          pwd
-          ls -lah
-          whoami
-          env
-          freebsd-version
+          uname -a
 
   # test-macos:
   #   runs-on: macos-11
