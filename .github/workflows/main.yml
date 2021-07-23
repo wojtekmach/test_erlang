@@ -4,11 +4,28 @@ on:
   push:
 
 jobs:
-  test-freebsd:
-    runs-on: ubuntu-latest
+  # test-freebsd:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: sudo apt update && sudo apt install -y qemu-system-x86
+  #     - run: qemu-system-x86_64 --version
+
+  freebsd:
+    runs-on: macos-latest
     steps:
-      - run: sudo apt update && sudo apt install -y qemu-system-x86
-      - run: qemu-system-x86_64 --version
+    - uses: actions/checkout@v2
+    - name: Test in FreeBSD
+      id: test
+      uses: vmactions/freebsd-vm@v0.1.4
+      with:
+        usesh: true
+        prepare: pkg install -y curl
+        run: |
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
 
   # test-macos:
   #   runs-on: macos-11
