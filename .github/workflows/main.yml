@@ -4,6 +4,12 @@ on:
   push:
 
 jobs:
+  test-freebsd:
+    runs-on: ubuntu-latest
+    steps:
+      - run: qemu --version || echo "no qemu"
+      - run: apt update && apt install -y qemu
+
   # test-macos:
   #   runs-on: macos-11
   #   steps:
@@ -22,19 +28,19 @@ jobs:
   #         otp-version: ${{matrix.pair.erlang}}
   #         rebar3-version: ${{matrix.pair.rebar3}}
   #     - run: rebar3 version
-  test-windows:
-    runs-on: windows-2019
-    steps:
-      - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
-        with:
-         otp-version: 23
-         rebar3-version: '3.16.1'
-      - run: rebar3 version
-      - run: |
-          mkdir tmp
-          cd tmp
-          curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
-          unzip Precompiled.zip
-          dir
-      - run: Write-Output "$PWD/tmp/bin" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
-      - run: elixir --version
+  # test-windows:
+  #   runs-on: windows-2019
+  #   steps:
+  #     - uses: paulo-ferraz-oliveira/setup-beam@feature/erlang-windows-builds
+  #       with:
+  #        otp-version: 23
+  #        rebar3-version: '3.16.1'
+  #     - run: rebar3 version
+  #     - run: |
+  #         mkdir tmp
+  #         cd tmp
+  #         curl -LO https://github.com/elixir-lang/elixir/releases/download/v1.12.1/Precompiled.zip
+  #         unzip Precompiled.zip
+  #         dir
+  #     - run: Write-Output "$PWD/tmp/bin" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
+  #     - run: elixir --version
