@@ -7,7 +7,7 @@ jobs:
   test-freebsd:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt update && sudo apt install -y qemu
+      - run: sudo apt update && sudo apt install -y qemu-system-x86
       - run: qemu-system-x86 --version
 
   # test-macos:
