@@ -10,23 +10,27 @@ jobs:
   #     - run: sudo apt update && sudo apt install -y qemu-system-x86
   #     - run: qemu-system-x86_64 --version
 
-  freebsd:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Test in FreeBSD
-      id: test
-      uses: vmactions/freebsd-vm@v0.1.4
-      with:
-        usesh: true
-        prepare: pkg install -y curl
-        run: |
-          uname -a
+  #freebsd:
+  #  runs-on: macos-latest
+  #  steps:
+  #  - uses: actions/checkout@v2
+  #  - name: Test in FreeBSD
+  #    id: test
+  #    uses: vmactions/freebsd-vm@v0.1.4
+  #    with:
+  #      usesh: true
+  #      prepare: pkg install -y curl
+  #      run: |
+  #        uname -a
 
-  # test-macos:
-  #   runs-on: macos-11
-  #   steps:
-  #     - run: uname -a
+  test-macos-10.15:
+    runs-on: macos-10.15
+    steps:
+      - run: brew --prefix openssl
+  test-macos-11:
+    runs-on: macos-11
+    steps:
+      - run: brew --prefix openssl
   # test-linux:
   #   runs-on: ubuntu-18.04
   #   strategy:
