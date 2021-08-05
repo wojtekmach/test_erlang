@@ -27,10 +27,12 @@ jobs:
     runs-on: macos-10.15
     steps:
       - run: brew --prefix openssl
+      - run: ls /usr/local/opt/openssl
   test-macos-11:
     runs-on: macos-11
     steps:
       - run: brew --prefix openssl
+      - run: ls /usr/local/opt/openssl
   # test-linux:
   #   runs-on: ubuntu-18.04
   #   strategy:
